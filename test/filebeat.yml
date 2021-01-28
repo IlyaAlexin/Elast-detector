@@ -1,0 +1,12 @@
+filebeat.inputs:
+- input_type: log
+  paths:
+    - /var/logs/log_sample/*
+  json.keys_under_root: true
+  document_type: logs
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "nginx-logs"
+
+setup.template.enabled: false
